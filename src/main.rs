@@ -11,9 +11,9 @@ fn main() {
     env::set_var("RUST_LOG", "debug");
     env_logger::init();
     let args: Vec<String> = env::args().collect();
-    if arg.len() != 4 {
+    if args.len() != 4 {
         error!("Please specify [tcp|udp] [server|client] [adr:port].");
-        std:prosess::exit();
+        std::process::exit(1);
     }
     let protocol: &str = &args[1];
     let role: &str = &args[2];
