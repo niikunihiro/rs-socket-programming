@@ -2,10 +2,10 @@ use std::env;
 #[macro_use]
 extern crate log;
 
-mod tcp_client;
+//mod tcp_client;
 mod tcp_server;
-mod udp_client;
-mod udp_server;
+//mod udp_client;
+//mod udp_server;
 
 fn main() {
     env::set_var("RUST_LOG", "debug");
@@ -21,7 +21,8 @@ fn main() {
     match protocol {
         "tcp" => match role {
             "server" => {
-                // TODO: TCP サーバの呼び出し
+                // TCP サーバの呼び出し
+                tcp_server::serve(address).unwrap_or_else(|e| error!("{}", e));
             }
             "client" => {
                 // TODO: TCP クライアントの呼び出し
